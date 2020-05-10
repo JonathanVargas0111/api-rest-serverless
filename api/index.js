@@ -4,6 +4,8 @@ const bodyParser = require('body-parser')
 //Paquete que permite utilizar el appi desde un lugar distinto al dominio
 const cors = require('cors')
 const orders = require('./routes/orders')
+const auth = require('./routes/auth')
+
 const meals = require('./routes/meals')
 const app = express()
 //Para aceptar solicitudes de tipo json
@@ -14,5 +16,6 @@ mongoose.connect(process.env.MONGODB_URI,{useNewUrlParser: true,seUnifiedTopolog
 
 app.use('/api/meals', meals)
 app.use('/api/orders', orders)
+app.use('/api/auth', auth)
 
 module.exports = app
